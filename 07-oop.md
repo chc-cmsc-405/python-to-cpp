@@ -1,10 +1,151 @@
-# 07 - Object-Oriented Programming
+# 07 - Custom Types: Structs and Classes
 
 [← Back to C++ Guide](README.md)
 
-C++ was one of the first languages to support object-oriented programming and takes it seriously. Classes have explicit access modifiers (`public`, `private`, `protected`) that the compiler enforces—not just naming conventions like Python's `_private`. Constructors use the class name instead of `__init__`, and there's no `self` parameter—member variables are accessed directly or through the `this` pointer.
+C++ provides two ways to define custom types: **structs** and **classes**. Structs are simpler—great for grouping related data together. Classes add encapsulation with access modifiers (`public`, `private`). In C++, structs and classes are almost identical; the only difference is that struct members are public by default, while class members are private by default.
 
 ---
+
+## Structs
+
+Structs group related data together. Python doesn't have a direct equivalent, but dataclasses or namedtuples are similar.
+
+### Defining a Struct
+
+**Python (using dataclass):**
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: float
+    y: float
+
+p = Point(3.0, 4.0)
+print(p.x, p.y)
+```
+
+**C++:**
+```cpp
+struct Point {
+    double x;
+    double y;
+};
+
+int main() {
+    Point p = {3.0, 4.0};  // Brace initialization
+    std::cout << p.x << ", " << p.y << std::endl;
+    return 0;
+}
+```
+
+### Struct with Multiple Fields
+
+**Python:**
+```python
+@dataclass
+class Student:
+    name: str
+    id: int
+    gpa: float
+```
+
+**C++:**
+```cpp
+struct Student {
+    std::string name;
+    int id;
+    double gpa;
+};
+
+// Creating a student
+Student s = {"Alice", 12345, 3.8};
+Student s2 = {"Bob", 67890, 3.5};
+```
+
+### Accessing and Modifying Members
+
+**Python:**
+```python
+s = Student("Alice", 12345, 3.8)
+print(s.name)      # Access
+s.gpa = 3.9        # Modify
+```
+
+**C++:**
+```cpp
+Student s = {"Alice", 12345, 3.8};
+std::cout << s.name << std::endl;  // Access
+s.gpa = 3.9;                       // Modify
+```
+
+### Passing Structs to Functions
+
+**C++:**
+```cpp
+// Pass by value (copy)
+void printStudent(Student s) {
+    std::cout << s.name << ": " << s.gpa << std::endl;
+}
+
+// Pass by const reference (read-only, no copy)
+void displayStudent(const Student& s) {
+    std::cout << s.name << ": " << s.gpa << std::endl;
+}
+
+// Pass by reference (can modify)
+void updateGPA(Student& s, double newGPA) {
+    s.gpa = newGPA;
+}
+```
+
+**When to use which:**
+- `Student s` — Makes a copy (safe but slower for large structs)
+- `const Student& s` — Read-only access, no copy (fast and safe)
+- `Student& s` — Can modify the original (use when you need to change it)
+
+### Vectors of Structs
+
+**Python:**
+```python
+students = [
+    Student("Alice", 1, 3.8),
+    Student("Bob", 2, 3.5),
+    Student("Carol", 3, 3.9)
+]
+
+for s in students:
+    print(s.name)
+```
+
+**C++:**
+```cpp
+std::vector<Student> students = {
+    {"Alice", 1, 3.8},
+    {"Bob", 2, 3.5},
+    {"Carol", 3, 3.9}
+};
+
+for (const Student& s : students) {
+    std::cout << s.name << std::endl;
+}
+```
+
+### Structs vs Classes
+
+| Aspect | Struct | Class |
+|--------|--------|-------|
+| **Default access** | Public | Private |
+| **Typical use** | Simple data grouping | Data + behavior with encapsulation |
+| **Convention** | Plain data, no/few methods | Methods, private data, constructors |
+
+In C++, structs can have methods and constructors just like classes. The convention is to use structs for simple data and classes when you need encapsulation.
+
+---
+
+## Classes
+
+Classes add encapsulation—the ability to hide data and control access through methods. C++ was one of the first languages to support object-oriented programming and takes it seriously. Classes have explicit access modifiers (`public`, `private`, `protected`) that the compiler enforces—not just naming conventions like Python's `_private`. Constructors use the class name instead of `__init__`, and there's no `self` parameter—member variables are accessed directly or through the `this` pointer.
 
 ## Class Definition
 

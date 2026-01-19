@@ -125,4 +125,109 @@ std::cout << text.find("World") << std::endl; // 7
 
 ---
 
+## File I/O
+
+Python's file handling is simpler, but C++ gives you more control. Use `ifstream` for reading and `ofstream` for writing.
+
+### Reading a File
+
+**Python:**
+```python
+with open("data.txt", "r") as file:
+    for line in file:
+        print(line.strip())
+```
+
+**C++:**
+```cpp
+#include <fstream>
+#include <string>
+
+std::ifstream file("data.txt");
+std::string line;
+while (std::getline(file, line)) {
+    std::cout << line << std::endl;
+}
+file.close();
+```
+
+### Writing to a File
+
+**Python:**
+```python
+with open("output.txt", "w") as file:
+    file.write("Hello, World!\n")
+```
+
+**C++:**
+```cpp
+#include <fstream>
+
+std::ofstream file("output.txt");
+file << "Hello, World!" << std::endl;
+file.close();
+```
+
+### Common File Operations
+
+| Task | Python | C++ |
+|------|--------|-----|
+| **Open for reading** | `open("f.txt", "r")` | `std::ifstream file("f.txt");` |
+| **Open for writing** | `open("f.txt", "w")` | `std::ofstream file("f.txt");` |
+| **Read line** | `line = file.readline()` | `std::getline(file, line);` |
+| **Read all lines** | `for line in file:` | `while (std::getline(file, line))` |
+| **Write line** | `file.write(text)` | `file << text << std::endl;` |
+| **Check if open** | N/A (raises exception) | `if (file.is_open())` |
+| **Close file** | `file.close()` | `file.close();` |
+
+### Reading CSV Data
+
+**Python:**
+```python
+with open("data.csv", "r") as file:
+    for line in file:
+        parts = line.strip().split(",")
+        name = parts[0]
+        score = int(parts[1])
+```
+
+**C++:**
+```cpp
+#include <fstream>
+#include <sstream>
+#include <string>
+
+std::ifstream file("data.csv");
+std::string line;
+
+while (std::getline(file, line)) {
+    std::stringstream ss(line);
+    std::string name;
+    std::string scoreStr;
+
+    std::getline(ss, name, ',');
+    std::getline(ss, scoreStr, ',');
+    int score = std::stoi(scoreStr);
+}
+file.close();
+```
+
+### Checking for Errors
+
+**C++:**
+```cpp
+std::ifstream file("data.txt");
+
+if (!file.is_open()) {
+    std::cout << "Error: Could not open file" << std::endl;
+    return 1;
+}
+
+// File operations here...
+
+file.close();
+```
+
+---
+
 [← Previous: Control Flow](04-control-flow.md) | [Next: Functions →](06-functions.md)

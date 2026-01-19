@@ -53,6 +53,40 @@ std::cout << ref;  // Prints 20 (same variable)
 - **References:** Function parameters when you want to modify the original
 - **Pointers:** When you need null, dynamic allocation, or reassignment
 
+## Arrow Operator (->)
+
+When you have a pointer to a struct or class, use the arrow operator `->` to access members. It's shorthand for dereferencing then accessing.
+
+```cpp
+struct Student {
+    std::string name;
+    double gpa;
+};
+
+Student s = {"Alice", 3.8};
+Student* ptr = &s;
+
+// These are equivalent:
+std::cout << (*ptr).name << std::endl;  // Dereference, then access
+std::cout << ptr->name << std::endl;    // Arrow operator (cleaner)
+
+// Modifying through pointer
+ptr->gpa = 3.9;
+```
+
+**Common pattern with dynamic allocation:**
+```cpp
+Student* s = new Student{"Bob", 3.5};
+std::cout << s->name << std::endl;  // Use -> with pointers
+std::cout << s->gpa << std::endl;
+delete s;
+```
+
+| Syntax | Use When |
+|--------|----------|
+| `obj.member` | You have the object directly |
+| `ptr->member` | You have a pointer to the object |
+
 ## Header Files and #include
 
 C++ separates declarations (`.h` files) from implementations (`.cpp` files).

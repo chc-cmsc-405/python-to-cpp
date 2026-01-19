@@ -4,6 +4,7 @@ You already know Python. This guide helps you learn C++ by showing side-by-side 
 
 ## How to Use This Guide
 
+- **[Reading Guide](reading-guide.md)** — Phase-aligned reading assignments for CMSC-405
 - **Quick Reference** — This README has dense comparison tables for quick lookup
 - **Deep Dive** — Individual pages (linked below) cover specific topics in detail with code examples
 - **Side-by-Side** — Python code on the left, C++ on the right
@@ -149,10 +150,10 @@ For more examples and in-depth explanations, see:
 | [02 - Data Types](02-data-types.md) | Types, type conversion |
 | [03 - Operators](03-operators.md) | Arithmetic, comparison, logical |
 | [04 - Control Flow](04-control-flow.md) | If/else, for, while, break/continue |
-| [05 - Data Structures](05-data-structures.md) | Vectors, maps, strings |
+| [05 - Data Structures](05-data-structures.md) | Vectors, maps, strings, file I/O |
 | [06 - Functions](06-functions.md) | Definition, parameters, defaults, void |
-| [07 - OOP](07-oop.md) | Classes, constructors, objects |
-| [08 - Unique Features](08-unique-features.md) | Pointers, references, memory, headers |
+| [07 - Custom Types](07-oop.md) | Structs, classes, constructors, inheritance |
+| [08 - Unique Features](08-unique-features.md) | Pointers, references, arrow operator, memory, headers |
 
 ---
 
