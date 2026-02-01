@@ -119,22 +119,41 @@ In Python, mutable objects (lists, dicts) are passed by reference. In C++, you m
 
 **C++:**
 ```cpp
-// Pass by value (copy)
-void doubleValue(int x) {
-    x = x * 2;  // Only changes local copy
+#include <iostream>
+
+// Pass by value (copy) — changes stay inside the function
+void doubleByValue(int x) {
+    x = x * 2;
+    std::cout << "Inside function: " << x << std::endl;
 }
 
-// Pass by reference (modify original)
-void doubleValue(int& x) {
-    x = x * 2;  // Changes original variable
+// Pass by reference (modify original) — changes affect the caller
+void doubleByReference(int& x) {
+    x = x * 2;
+    std::cout << "Inside function: " << x << std::endl;
 }
 
 int main() {
-    int num = 5;
-    doubleValue(num);  // Depends on which version is called
+    int a = 5;
+    doubleByValue(a);
+    std::cout << "After doubleByValue: " << a << std::endl;  // Still 5!
+
+    int b = 5;
+    doubleByReference(b);
+    std::cout << "After doubleByReference: " << b << std::endl;  // Now 10
     return 0;
 }
 ```
+
+**Output:**
+```
+Inside function: 10
+After doubleByValue: 5
+Inside function: 10
+After doubleByReference: 10
+```
+
+The `&` in the parameter makes all the difference—without it, the function works on a copy.
 
 ## Const References
 
