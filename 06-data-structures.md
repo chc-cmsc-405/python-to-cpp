@@ -6,9 +6,59 @@ C++ provides several container types through its Standard Template Library (STL)
 
 ---
 
-## Arrays / Lists / Vectors
+## Arrays
 
-Python uses lists. C++ has arrays and vectors. **Vectors** are the closest equivalent to Python lists.
+C-style arrays are fixed-size collections. Unlike Python lists or C++ vectors, they have no methods—just raw memory with index access.
+
+```cpp
+int numbers[5] = {1, 2, 3, 4, 5};  // Fixed size of 5
+numbers[0] = 10;                    // Access by index
+// numbers.size()  — Error! Arrays have no methods
+// numbers.push_back(6)  — Error! Can't resize arrays
+```
+
+**Key limitations:**
+- Size is fixed at compile time—can't grow or shrink
+- No `.size()` method—you must track length separately
+- When passing to functions, you must also pass the size
+
+```cpp
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << std::endl;
+    }
+}
+```
+
+**When to use:** Arrays are useful when the size is known and fixed. For most cases, prefer vectors.
+
+## Lists
+
+`std::list` is a doubly-linked list. It's efficient for inserting/removing elements anywhere, but has no random access.
+
+```cpp
+#include <list>
+
+std::list<int> numbers = {1, 2, 3, 4, 5};
+numbers.push_back(6);       // Add to end
+numbers.push_front(0);      // Add to beginning
+numbers.pop_back();         // Remove from end
+numbers.pop_front();        // Remove from beginning
+// numbers[2]  — Error! No random access with lists
+```
+
+| Feature | `std::list` | `std::vector` |
+|---------|-------------|---------------|
+| Random access `[i]` | No | Yes |
+| `push_front` | Yes | No |
+| Insert in middle | Fast | Slow |
+| Memory | More overhead | Contiguous |
+
+**When to use:** Lists are best when you frequently insert/remove from the middle. For most cases, prefer vectors.
+
+## Vectors
+
+`std::vector` is the closest equivalent to Python lists—a resizable array that grows automatically.
 
 | Concept | Python | C++ |
 |---------|--------|-----|
@@ -37,6 +87,8 @@ numbers.push_back(6);
 std::cout << numbers[0] << std::endl;      // 1
 std::cout << numbers.size() << std::endl;  // 6
 ```
+
+**When to use:** Vectors are the go-to choice for most situations. Use them unless you have a specific reason not to.
 
 ## Iterating Over Vectors
 
@@ -122,10 +174,6 @@ std::cout << text.length() << std::endl;     // 13
 std::cout << text.substr(0, 5) << std::endl; // Hello
 std::cout << text.find("World") << std::endl; // 7
 ```
-
----
-
-**Next up:** Learn how to read data from files into these structures — see [07 - I/O Streams](07-io-streams.md).
 
 ---
 

@@ -138,13 +138,21 @@ Include the `<sstream>` header.
 
 ### Parsing CSV Data
 
+**Sample file (`grades.csv`):**
+```
+Alice,Math,95
+Bob,English,87
+Charlie,Math,92
+```
+
 **Python:**
 ```python
-with open("data.csv", "r") as file:
+with open("grades.csv", "r") as file:
     for line in file:
         parts = line.strip().split(",")
         name = parts[0]
-        score = int(parts[1])
+        subject = parts[1]
+        score = int(parts[2])
 ```
 
 **C++:**
@@ -153,21 +161,25 @@ with open("data.csv", "r") as file:
 #include <sstream>
 #include <string>
 
-std::ifstream file("data.csv");
+std::ifstream file("grades.csv");
 std::string line;
 
 while (std::getline(file, line)) {
     std::stringstream ss(line);
     std::string name;
+    std::string subject;
     std::string scoreStr;
 
-    std::getline(ss, name, ',');       // Read until comma
-    std::getline(ss, scoreStr, ',');   // Read until comma
-    int score = std::stoi(scoreStr);   // Convert string to int
+    std::getline(ss, name, ',');       // Read until first comma
+    std::getline(ss, subject, ',');    // Read until second comma
+    std::getline(ss, scoreStr);        // Read rest of line
+    int score = std::stoi(scoreStr);
 }
 
 file.close();
 ```
+
+Python's `split(",")` returns all parts at once. In C++, you call `getline()` once per field, reading until each delimiter.
 
 ### getline with Delimiter
 
