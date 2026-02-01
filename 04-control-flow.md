@@ -42,19 +42,19 @@ if (x > 0) {
 
 ## Switch Statement
 
-C++ has `switch` for comparing one value against multiple options. Python traditionally uses if/elif chains (though Python 3.10 added `match-case`).
+C++ has `switch` for comparing one value against multiple options.
 
-**Python (if/elif):**
+**Python (3.10+):**
 ```python
-day = 3
-if day == 1:
-    print("Monday")
-elif day == 2:
-    print("Tuesday")
-elif day == 3:
-    print("Wednesday")
-else:
-    print("Other day")
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case _:
+        print("Other day")
 ```
 
 **C++:**
@@ -75,10 +75,10 @@ switch (day) {
 }
 ```
 
-**Key points:**
+**Key differences from Python's `match`:**
 - Each `case` must end with `break` or execution "falls through" to the next case
-- `default` handles values that don't match any case (like `else`)
-- `switch` only works with integers and characters, not strings
+- `default` is like Python's `case _:` (catches everything else)
+- C++ `switch` only works with integers and characters, not strings
 
 ## For Loop
 
