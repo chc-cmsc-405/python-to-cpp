@@ -8,7 +8,9 @@ C++ provides several container types through its Standard Template Library (STL)
 
 ## Arrays
 
-C-style arrays are fixed-size collections. Unlike Python lists or C++ vectors, they have no methods—just raw memory with index access.
+### C-Style Arrays
+
+C-style arrays are fixed-size collections with no methods—just raw memory with index access.
 
 ```cpp
 int numbers[5] = {1, 2, 3, 4, 5};  // Fixed size of 5
@@ -30,7 +32,32 @@ void printArray(int arr[], int size) {
 }
 ```
 
-**When to use:** Arrays are useful when the size is known and fixed. For most cases, prefer vectors.
+### STL Arrays (`std::array`)
+
+`std::array` is a modern C++ wrapper around fixed-size arrays. It has the same performance as C arrays but includes helpful methods.
+
+```cpp
+#include <array>
+
+std::array<int, 5> numbers = {1, 2, 3, 4, 5};  // Fixed size of 5
+numbers[0] = 10;                    // Access by index
+std::cout << numbers.size();        // 5 — has .size()!
+std::cout << numbers.at(2);         // 3 — bounds-checked access
+std::cout << numbers.front();       // 10 — first element
+std::cout << numbers.back();        // 5 — last element
+```
+
+| Feature | C Array | `std::array` | `std::vector` |
+|---------|---------|--------------|---------------|
+| Fixed size | Yes | Yes | No (resizable) |
+| Has `.size()` | No | Yes | Yes |
+| Has `.at()` | No | Yes | Yes |
+| Bounds checking | No | Yes (with `.at()`) | Yes (with `.at()`) |
+
+**When to use:**
+- **C arrays:** Low-level code, interfacing with C libraries
+- **`std::array`:** Fixed-size collections where you want STL conveniences
+- **`std::vector`:** When size may change, or you don't know size at compile time
 
 ## Lists
 
