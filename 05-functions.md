@@ -136,6 +136,38 @@ int main() {
 }
 ```
 
+## Const References
+
+When you pass by reference but don't need to modify the data, use `const`:
+
+```cpp
+// Pass by const reference (read-only, no copy)
+void printScores(const std::vector<int>& scores) {
+    for (int s : scores) {
+        std::cout << s << std::endl;
+    }
+    // scores.push_back(100);  // Error! Can't modify const reference
+}
+
+// Pass by reference (can modify)
+void addScore(std::vector<int>& scores, int newScore) {
+    scores.push_back(newScore);  // OK - modifies original vector
+}
+```
+
+**Why use `const&`?**
+- **Efficiency** — Avoids copying large data (vectors, strings)
+- **Safety** — Compiler prevents accidental modification
+- **Intent** — Makes it clear the function only reads the data
+
+| Parameter Type | Copies Data? | Can Modify? | Use When |
+|----------------|--------------|-------------|----------|
+| `int x` | Yes | No (copy) | Small types (int, double, char) |
+| `vector<int>& v` | No | Yes | Need to modify the original |
+| `const vector<int>& v` | No | No | Read-only access to large data |
+
+**Rule of thumb:** For vectors and strings, prefer `const T&` unless you need to modify.
+
 ---
 
 [← Previous: Control Flow](04-control-flow.md) | [Next: Data Structures →](06-data-structures.md)
