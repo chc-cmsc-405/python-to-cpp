@@ -175,6 +175,48 @@ std::cout << text.substr(0, 5) << std::endl; // Hello
 std::cout << text.find("World") << std::endl; // 7
 ```
 
+## Character Functions
+
+C++ provides character functions in `<cctype>`. In Python, these are methods on strings. In C++, they're standalone functions that take a character.
+
+| Task | Python | C++ |
+|------|--------|-----|
+| **Is letter?** | `c.isalpha()` | `isalpha(c)` |
+| **Is digit?** | `c.isdigit()` | `isdigit(c)` |
+| **Is alphanumeric?** | `c.isalnum()` | `isalnum(c)` |
+| **Is whitespace?** | `c.isspace()` | `isspace(c)` |
+| **Is uppercase?** | `c.isupper()` | `isupper(c)` |
+| **Is lowercase?** | `c.islower()` | `islower(c)` |
+| **To uppercase** | `c.upper()` | `toupper(c)` |
+| **To lowercase** | `c.lower()` | `tolower(c)` |
+
+**Python:**
+```python
+text = "Hello123"
+for c in text:
+    if c.isalpha():
+        print(c.upper())
+    elif c.isdigit():
+        print(c)
+```
+
+**C++:**
+```cpp
+#include <cctype>
+#include <string>
+
+std::string text = "Hello123";
+for (char c : text) {
+    if (isalpha(c)) {
+        std::cout << (char)toupper(c);
+    } else if (isdigit(c)) {
+        std::cout << c;
+    }
+}
+```
+
+**Note:** `toupper()` and `tolower()` return an `int`, so cast to `char` when outputting.
+
 ---
 
 [← Previous: Functions](05-functions.md) | [Next: I/O Streams →](07-io-streams.md)
