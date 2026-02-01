@@ -115,7 +115,11 @@ int add(int a, int b) {  // Definition
 
 ## Pass by Value vs Reference
 
-In Python, mutable objects (lists, dicts) are passed by reference. In C++, you must be explicit:
+In Python, the behavior depends on the type:
+- **Immutable types** (`int`, `str`, `tuple`): Changes inside a function don't affect the original—similar to pass by value
+- **Mutable types** (`list`, `dict`): Changes inside a function affect the original—similar to pass by reference
+
+In C++, you choose explicitly with the `&` symbol, regardless of type:
 
 **C++:**
 ```cpp
@@ -157,7 +161,9 @@ The `&` in the parameter makes all the difference—without it, the function wor
 
 ## Const References
 
-When you pass by reference but don't need to modify the data, use `const`:
+When you pass by reference but don't need to modify the data, use `const`.
+
+**Note:** `const` is unique to C++ (and C). Python has no equivalent—you can't tell Python "don't let this function modify my list." In C++, the compiler enforces `const` at compile time, catching accidental modifications before your code even runs.
 
 ```cpp
 // Pass by const reference (read-only, no copy)
