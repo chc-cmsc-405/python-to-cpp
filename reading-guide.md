@@ -11,7 +11,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 | Read | Sections | Key Concepts |
 |------|----------|--------------|
 | [01-basics](01-basics.md) | All | Comments, Hello World, cout/cin, variables |
-| [02-data-types](02-data-types.md) | All | int, double, string, bool, type conversion |
+| [02-data-types](02-data-types.md) | Primitive Types, Type Conversions | int, double, string basics, bool, type conversion |
 | [03-operators](03-operators.md) | All | Arithmetic, comparison, logical (&&, \|\|, !) |
 
 **Key takeaways:**
@@ -29,9 +29,10 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 
 | Read | Sections | Key Concepts |
 |------|----------|--------------|
+| [02-data-types](02-data-types.md) | Strings section | String operations, modifiers, character functions |
 | [04-control-flow](04-control-flow.md) | For Loop section | Traditional for loop, range-based for |
 | [05-functions](05-functions.md) | All | Function definition, parameters, pass by reference |
-| [06-data-structures](06-data-structures.md) | Vectors, Strings | vector<T>, push_back, size, string operations |
+| [06-data-structures](06-data-structures.md) | Arrays, Vectors, Maps | C arrays, std::array, vector<T>, push_back, size |
 | [07-io-streams](07-io-streams.md) | All | getline, ifstream, ofstream, stringstream |
 
 **Key takeaways:**
@@ -87,7 +88,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 | Phase | Session | Read Before Class |
 |-------|---------|-------------------|
 | 1 | S2 (Mon) | 01-basics, 02-data-types, 03-operators |
-| 2 | S4 (Mon) | 04-control-flow (loops), 05-functions, 06-data-structures, 07-io-streams |
+| 2 | S4 (Mon) | 02-data-types (strings), 04-control-flow (loops), 05-functions, 06-data-structures, 07-io-streams |
 | 3 | S6 (Mon) | 08-custom-types (structs only) |
 | 4 | S8 (Mon) | 09-unique-features (pointers/references) |
 
@@ -100,11 +101,11 @@ For complete coverage or later review, all sections are available:
 | Guide | Topics |
 |-------|--------|
 | [01-basics](01-basics.md) | Comments, Hello World, console I/O, variables, constants |
-| [02-data-types](02-data-types.md) | Types, type conversion |
+| [02-data-types](02-data-types.md) | Types, strings, character functions, type conversion |
 | [03-operators](03-operators.md) | Arithmetic, comparison, logical |
 | [04-control-flow](04-control-flow.md) | If/else, for, while, break/continue |
 | [05-functions](05-functions.md) | Functions, parameters, pass by reference |
-| [06-data-structures](06-data-structures.md) | Vectors, maps, strings |
+| [06-data-structures](06-data-structures.md) | Arrays, vectors, maps |
 | [07-io-streams](07-io-streams.md) | File I/O, getline, stringstream |
 | [08-custom-types](08-custom-types.md) | Structs, classes, inheritance |
 | [09-unique-features](09-unique-features.md) | Pointers, references, memory, headers |
