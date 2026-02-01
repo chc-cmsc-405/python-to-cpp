@@ -148,21 +148,22 @@ if (scores.count("Alice") > 0) {
 
 ## Strings
 
+### String Basics
+
 | Concept | Python | C++ |
 |---------|--------|-----|
 | **Create** | `s = "hello"` | `std::string s = "hello";` |
 | **Length** | `len(s)` | `s.length()` or `s.size()` |
 | **Concatenate** | `s1 + s2` | `s1 + s2` |
-| **Find** | `s.find("ell")` | `s.find("ell")` |
-| **Substring** | `s[1:4]` | `s.substr(1, 3)` (start, length) |
 | **Access char** | `s[0]` | `s[0]` |
+| **Check empty** | `if not s:` | `if (s.empty())` |
+| **Compare** | `s1 == s2` | `s1 == s2` or `s1.compare(s2)` |
 
 **Python:**
 ```python
 text = "Hello, World!"
 print(len(text))        # 13
-print(text[0:5])        # Hello
-print(text.find("World"))  # 7
+print(text[0])          # H
 ```
 
 **C++:**
@@ -170,10 +171,49 @@ print(text.find("World"))  # 7
 #include <string>
 
 std::string text = "Hello, World!";
-std::cout << text.length() << std::endl;     // 13
-std::cout << text.substr(0, 5) << std::endl; // Hello
-std::cout << text.find("World") << std::endl; // 7
+std::cout << text.length() << std::endl;  // 13
+std::cout << text[0] << std::endl;        // H
 ```
+
+### String Operations (Finding & Extracting)
+
+| Concept | Python | C++ |
+|---------|--------|-----|
+| **Find** | `s.find("ell")` | `s.find("ell")` |
+| **Find from end** | `s.rfind("l")` | `s.rfind("l")` |
+| **Substring** | `s[1:4]` | `s.substr(1, 3)` (start, length) |
+| **Starts with** | `s.startswith("He")` | `s.find("He") == 0` |
+| **Ends with** | `s.endswith("!")` | `s.rfind("!") == s.length()-1` |
+
+```cpp
+std::string text = "Hello, World!";
+std::cout << text.find("World") << std::endl;    // 7
+std::cout << text.rfind("o") << std::endl;       // 8 (last 'o')
+std::cout << text.substr(0, 5) << std::endl;     // Hello
+std::cout << text.substr(7) << std::endl;        // World! (to end)
+```
+
+**Note:** `find()` returns `std::string::npos` if not found (a large number, not -1 like Python).
+
+### String Modifiers
+
+| Concept | Python | C++ |
+|---------|--------|-----|
+| **Append** | `s += "more"` | `s += "more"` or `s.append("more")` |
+| **Insert** | N/A (use slicing) | `s.insert(5, "text")` |
+| **Erase** | N/A (use slicing) | `s.erase(5, 3)` (start, count) |
+| **Replace** | `s.replace("old", "new")` | `s.replace(pos, len, "new")` |
+| **Clear** | `s = ""` | `s.clear()` |
+
+```cpp
+std::string text = "Hello, World!";
+text.append("!");                    // "Hello, World!!"
+text.insert(7, "Beautiful ");        // "Hello, Beautiful World!!"
+text.erase(7, 10);                   // "Hello, World!!"
+text.replace(0, 5, "Hi");            // "Hi, World!!"
+```
+
+**Note:** C++ `replace()` works by position, not by searching. To replace all occurrences of a substring, you need a loop with `find()`.
 
 ## Character Functions
 
