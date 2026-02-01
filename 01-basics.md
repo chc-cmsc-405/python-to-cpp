@@ -30,7 +30,9 @@ int main() {
 }
 ```
 
-## Output
+## Console Output
+
+C++ uses `std::cout` (character output) to print to the console. The `<<` operator sends data to the output stream.
 
 | Python | C++ |
 |--------|-----|
@@ -38,12 +40,16 @@ int main() {
 | `print(a, b, c)` | `std::cout << a << " " << b << " " << c << std::endl;` |
 | `print(f"Value: {x}")` | `std::cout << "Value: " << x << std::endl;` |
 
-## Input
+## Console Input
+
+C++ uses `std::cin` (character input) to read from the keyboard. The `>>` operator reads data from the input stream.
 
 | Python | C++ |
 |--------|-----|
 | `name = input("Enter name: ")` | `std::string name;`<br>`std::cout << "Enter name: ";`<br>`std::cin >> name;` |
 | `num = int(input("Enter number: "))` | `int num;`<br>`std::cout << "Enter number: ";`<br>`std::cin >> num;` |
+
+**Note:** `cin >>` stops at whitespace. To read a full line (including spaces), use `getline()` — see [06 - I/O Streams](06-io-streams.md).
 
 ## Variables
 

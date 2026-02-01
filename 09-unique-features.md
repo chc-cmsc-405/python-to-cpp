@@ -1,4 +1,4 @@
-# 08 - C++ Unique Features
+# 09 - C++ Unique Features
 
 [← Back to C++ Guide](README.md)
 
@@ -258,4 +258,4 @@ cout << "Hello" << endl;
 
 ---
 
-[← Previous: OOP](07-oop.md) | [Back to C++ Guide](README.md)
+[← Previous: Custom Types](08-custom-types.md) | [Back to C++ Guide](README.md)

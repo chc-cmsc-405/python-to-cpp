@@ -1,4 +1,4 @@
-# 07 - Custom Types: Structs and Classes
+# 08 - Custom Types: Structs and Classes
 
 [← Back to C++ Guide](README.md)
 
@@ -314,4 +314,4 @@ public:
 
 ---
 
-[← Previous: Functions](06-functions.md) | [Next: Unique Features →](08-unique-features.md)
+[← Previous: I/O Streams](07-io-streams.md) | [Next: Unique Features →](09-unique-features.md)

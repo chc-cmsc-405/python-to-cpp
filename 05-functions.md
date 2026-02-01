@@ -1,4 +1,4 @@
-# 06 - Functions
+# 05 - Functions
 
 [← Back to C++ Guide](README.md)
 
@@ -138,4 +138,4 @@ int main() {
 
 ---
 
-[← Previous: Data Structures](05-data-structures.md) | [Next: OOP →](07-oop.md)
+[← Previous: Control Flow](04-control-flow.md) | [Next: Data Structures →](06-data-structures.md)

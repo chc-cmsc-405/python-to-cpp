@@ -146,14 +146,15 @@ For more examples and in-depth explanations, see:
 
 | Section | Topics |
 |---------|--------|
-| [01 - Basics](01-basics.md) | Comments, Hello World, I/O, variables, constants |
+| [01 - Basics](01-basics.md) | Comments, Hello World, console I/O, variables, constants |
 | [02 - Data Types](02-data-types.md) | Types, type conversion |
 | [03 - Operators](03-operators.md) | Arithmetic, comparison, logical |
 | [04 - Control Flow](04-control-flow.md) | If/else, for, while, break/continue |
-| [05 - Data Structures](05-data-structures.md) | Vectors, maps, strings, file I/O |
-| [06 - Functions](06-functions.md) | Definition, parameters, defaults, void |
-| [07 - Custom Types](07-oop.md) | Structs, classes, constructors, inheritance |
-| [08 - Unique Features](08-unique-features.md) | Pointers, references, arrow operator, memory, headers |
+| [05 - Functions](05-functions.md) | Definition, parameters, defaults, void |
+| [06 - Data Structures](06-data-structures.md) | Vectors, maps, strings |
+| [07 - I/O Streams](07-io-streams.md) | File I/O, getline, stringstream, CSV parsing |
+| [08 - Custom Types](08-custom-types.md) | Structs, classes, constructors, inheritance |
+| [09 - Unique Features](09-unique-features.md) | Pointers, references, arrow operator, memory, headers |
 
 ---
 
