@@ -14,8 +14,6 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 | [02-data-types](02-data-types.md) | All | int, double, string, bool, type conversion |
 | [03-operators](03-operators.md) | All | Arithmetic, comparison, logical (&&, \|\|, !) |
 
-**Time estimate:** ~20 minutes
-
 **Key takeaways:**
 - Every variable needs a type declaration
 - Use `std::cout <<` instead of `print()`
@@ -34,8 +32,6 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 | [04-control-flow](04-control-flow.md) | For Loop section | Traditional for loop, range-based for |
 | [05-data-structures](05-data-structures.md) | Vectors, Strings, File I/O | vector<T>, push_back, size, ifstream |
 
-**Time estimate:** ~20 minutes
-
 **Key takeaways:**
 - `std::vector<int>` is like Python's list (but single type only)
 - Use `push_back()` instead of `append()`
@@ -52,8 +48,6 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 | Read | Sections | Key Concepts |
 |------|----------|--------------|
 | [07-custom-types](07-oop.md) | Structs section only | struct definition, member access, passing to functions |
-
-**Time estimate:** ~15 minutes
 
 **Note:** Stop after the "Structs vs Classes" table. We'll cover classes in the in-person session.
 
@@ -73,8 +67,6 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 | Read | Sections | Key Concepts |
 |------|----------|--------------|
 | [08-unique-features](08-unique-features.md) | Pointers, References, Arrow Operator, Pointers vs References | &, *, ->, nullptr |
-
-**Time estimate:** ~20 minutes
 
 **Note:** Stop after "Arrow Operator" section. We'll cover memory management (new/delete) in the in-person session.
 
