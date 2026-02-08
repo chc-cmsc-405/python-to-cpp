@@ -1,10 +1,10 @@
 # C++ Reading Guide by Phase
 
-This guide maps the Python-to-C++ reference materials to the course phases. Read the assigned sections **before** watching the async videos—they'll provide context and help you recognize familiar patterns.
+This guide maps the Python-to-C++ reference materials to each phase. Read the assigned sections **before** watching the videos — they'll provide context and help you recognize familiar patterns.
 
 ---
 
-## Phase 1: Basics (Session 2 Async)
+## Phase 1: Basics
 
 **Topics:** Variables, types, I/O, operators
 
@@ -23,7 +23,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 
 ---
 
-## Phase 2: Collections (Session 4-5)
+## Phase 2: Collections
 
 **Topics:** Arrays, vectors, strings, file I/O
 
@@ -45,7 +45,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 
 ---
 
-## Phase 3: Custom Types (Session 6 Async)
+## Phase 3: Custom Types
 
 **Topics:** Structs, passing structs to functions
 
@@ -53,7 +53,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 |------|----------|--------------|
 | [08-custom-types](08-custom-types.md) | Structs section only | struct definition, member access, passing to functions |
 
-**Note:** Stop after the "Structs vs Classes" table. We'll cover classes in the in-person session.
+**Note:** Stop after the "Structs vs Classes" table. Classes are covered later in Phase 3.
 
 **Key takeaways:**
 - Structs group related data (like Python dataclasses)
@@ -64,7 +64,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 
 ---
 
-## Phase 4: Pointers (Session 8 Async)
+## Phase 4: Unique Features
 
 **Topics:** Pointers, references, arrow operator
 
@@ -72,7 +72,7 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 |------|----------|--------------|
 | [09-unique-features](09-unique-features.md) | Pointers, References, Arrow Operator, Pointers vs References | &, *, ->, nullptr |
 
-**Note:** Stop after "Arrow Operator" section. We'll cover memory management (new/delete) in the in-person session.
+**Note:** Stop after "Arrow Operator" section. Memory management (new/delete) is covered later in Phase 4.
 
 **Key takeaways:**
 - `&x` gives the address of x
@@ -85,12 +85,12 @@ This guide maps the Python-to-C++ reference materials to the course phases. Read
 
 ## Quick Reference: What to Read When
 
-| Phase | Session | Read Before Class |
-|-------|---------|-------------------|
-| 1 | S2 (Mon) | 01-basics, 02-data-types, 03-operators |
-| 2 | S4 (Mon) | 02-data-types (strings), 04-control-flow (loops), 05-functions, 06-data-structures, 07-io-streams |
-| 3 | S6 (Mon) | 08-custom-types (structs only) |
-| 4 | S8 (Mon) | 09-unique-features (pointers/references) |
+| Phase | Read |
+|-------|------|
+| 1: Basics | 01-basics, 02-data-types, 03-operators |
+| 2: Collections | 02-data-types (strings), 04-control-flow (loops), 05-functions, 06-data-structures, 07-io-streams |
+| 3: Custom Types | 08-custom-types (structs only) |
+| 4: Unique Features | 09-unique-features (pointers/references) |
 
 ---
 
