@@ -4,6 +4,15 @@
 
 C++ provides several container types through its Standard Template Library (STL). The `vector` is most similar to Python's list—it's a resizable array that grows automatically. Unlike Python lists, C++ vectors can only hold one type (e.g., `vector<int>` holds only integers). Maps work like Python dictionaries but also require type declarations for both keys and values.
 
+## Contents
+
+- [Arrays](#arrays)
+- [Lists](#lists)
+- [Vectors](#vectors)
+- [Removing from Vectors](#removing-from-vectors)
+- [Iterating Over Vectors](#iterating-over-vectors)
+- [Dictionaries / Maps](#dictionaries--maps)
+
 ---
 
 ## Arrays
@@ -116,6 +125,35 @@ std::cout << numbers.size() << std::endl;  // 6
 ```
 
 **When to use:** Vectors are the go-to choice for most situations. Use them unless you have a specific reason not to.
+
+## Removing from Vectors
+
+**Python:**
+```python
+numbers = [10, 20, 30, 40, 50]
+numbers.remove(30)       # Remove by value
+del numbers[0]           # Remove by index
+```
+
+**C++:**
+```cpp
+std::vector<int> numbers = {10, 20, 30, 40, 50};
+
+// Remove by index — use erase with an iterator
+numbers.erase(numbers.begin() + 2);  // Removes 30 (index 2)
+
+// Remove by index — using a variable
+int i = 0;
+numbers.erase(numbers.begin() + i);  // Removes first element
+```
+
+| Concept | Python | C++ |
+|---------|--------|-----|
+| **Remove by value** | `list.remove(val)` | No built-in — loop to find, then `erase` |
+| **Remove by index** | `del list[i]` | `vec.erase(vec.begin() + i);` |
+| **Remove last** | `list.pop()` | `vec.pop_back();` |
+
+**Note:** `erase` takes an **iterator**, not an index. `vec.begin() + i` gives you the iterator at position `i`.
 
 ## Iterating Over Vectors
 

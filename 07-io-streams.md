@@ -4,6 +4,15 @@
 
 C++ uses a unified "streams" model for input and output. Whether you're reading from the keyboard, a file, or a string, you use the same operators (`<<`, `>>`) and functions (`getline`). Once you understand streams, you can work with any input source using the same patterns.
 
+## Contents
+
+- [The Streams Concept](#the-streams-concept)
+- [Reading Lines with getline()](#reading-lines-with-getline)
+- [File I/O](#file-io)
+- [String Streams](#string-streams)
+- [Common Patterns](#common-patterns)
+- [Summary](#summary)
+
 ---
 
 ## The Streams Concept

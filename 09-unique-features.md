@@ -4,6 +4,19 @@
 
 These concepts don't have direct Python equivalents. Pointers and references give you direct access to memory addresses—powerful but requiring careful handling. Manual memory management means you're responsible for allocating and freeing memory (though modern C++ offers smart pointers to help). Header files separate declarations from implementations, enabling faster compilation of large projects.
 
+## Contents
+
+- [Pointers](#pointers)
+- [References](#references)
+- [Pointers vs References](#pointers-vs-references)
+- [Arrow Operator (->)](#arrow-operator--)
+- [Vectors of Pointers](#vectors-of-pointers)
+- [Header Files and #include](#header-files-and-include)
+- [Memory Management: Python vs C++](#memory-management-python-vs-c)
+- [Compilation Process](#compilation-process)
+- [The const Keyword](#the-const-keyword)
+- [Namespaces](#namespaces)
+
 ---
 
 ## Pointers
@@ -86,6 +99,68 @@ delete s;
 |--------|----------|
 | `obj.member` | You have the object directly |
 | `ptr->member` | You have a pointer to the object |
+
+## Vectors of Pointers
+
+When a class manages a collection of objects, a common C++ pattern is to store **pointers** in a vector. The class that creates the objects is responsible for cleaning them up — this is called **ownership**.
+
+### Creating and Storing
+
+```cpp
+std::vector<Song*> songs;
+
+// Allocate on the heap and store the pointer
+songs.push_back(new Song("Imagine", "John Lennon", 183));
+songs.push_back(new Song("Bohemian Rhapsody", "Queen", 354));
+```
+
+### Accessing Members
+
+Use the arrow operator `->` to access members through a pointer:
+
+```cpp
+for (Song* song : songs) {
+    std::cout << song->getTitle() << std::endl;
+}
+
+// By index
+std::cout << songs[0]->getArtist() << std::endl;
+```
+
+### Removing: Delete Before Erase
+
+When removing from a vector of pointers, **order matters**. You must free the memory before removing the pointer from the vector:
+
+```cpp
+// WRONG — memory leak!
+songs.erase(songs.begin() + i);  // Pointer gone, memory leaked forever
+
+// RIGHT — delete THEN erase
+delete songs[i];                  // Free the memory first
+songs.erase(songs.begin() + i);  // Then remove pointer from vector
+```
+
+### Cleanup: The Destructor Pattern
+
+When the owning class is destroyed, it must free all the objects it created:
+
+```cpp
+class Playlist {
+private:
+    std::vector<Song*> songs;
+
+public:
+    ~Playlist() {
+        for (Song* song : songs) {
+            delete song;
+        }
+    }
+};
+```
+
+This is the **ownership rule**: whoever calls `new` is responsible for calling `delete`. The destructor runs automatically when the object goes out of scope, ensuring cleanup happens even if the programmer forgets.
+
+**Python equivalent:** There is none. Python's garbage collector handles all of this automatically. In C++, you're in charge.
 
 ## Header Files and #include
 

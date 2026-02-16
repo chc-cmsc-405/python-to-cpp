@@ -4,6 +4,18 @@
 
 C++ provides two ways to define custom types: **structs** and **classes**. Structs are simpler—great for grouping related data together. Classes add encapsulation with access modifiers (`public`, `private`). In C++, structs and classes are almost identical; the only difference is that struct members are public by default, while class members are private by default.
 
+## Contents
+
+- [Structs](#structs)
+- [Classes](#classes)
+- [Class Definition](#class-definition)
+- [Creating Objects](#creating-objects)
+- [Key OOP Differences](#key-oop-differences)
+- [Access Modifiers](#access-modifiers)
+- [Destructors](#destructors)
+- [Inheritance](#inheritance)
+- [Using this](#using-this)
+
 ---
 
 ## Structs
@@ -242,6 +254,57 @@ protected:
     std::string secret;    // Accessible in class and subclasses
 };
 ```
+
+## Destructors
+
+A destructor is a special method that runs automatically when an object is destroyed (goes out of scope or is deleted). Python has `__del__`, but it's rarely used because the garbage collector handles cleanup. In C++, destructors are essential for freeing resources.
+
+**Python:**
+```python
+class FileHandler:
+    def __init__(self, filename):
+        self.file = open(filename)
+
+    def __del__(self):
+        self.file.close()  # Rarely needed — GC handles this
+```
+
+**C++:**
+```cpp
+class Playlist {
+private:
+    std::vector<Song*> songs;
+
+public:
+    Playlist() {}
+
+    ~Playlist() {  // Destructor — runs automatically
+        for (Song* song : songs) {
+            delete song;
+        }
+    }
+};
+```
+
+**Key points:**
+- Destructor name is `~ClassName()` — tilde + class name, no parameters
+- Runs automatically when a stack object goes out of scope
+- Runs automatically when `delete` is called on a heap object
+- Essential when your class owns resources (heap memory, file handles, etc.)
+
+```cpp
+void example() {
+    Playlist p;
+    p.addSong(new Song("Imagine", "John Lennon", 183));
+    // ... use playlist ...
+}  // p goes out of scope → ~Playlist() runs → all Songs deleted
+```
+
+| Concept | Python | C++ |
+|---------|--------|-----|
+| **Name** | `__del__(self)` | `~ClassName()` |
+| **When it runs** | When GC collects | When object goes out of scope or is deleted |
+| **How often needed** | Rarely | Whenever the class owns resources |
 
 ## Inheritance
 
