@@ -196,7 +196,7 @@ public:
         std::cout << name << " says woof!" << std::endl;
     }
 
-    int getAge() {
+    int getAge() const {  // const = won't modify the object
         return age;
     }
 };

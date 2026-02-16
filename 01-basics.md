@@ -75,6 +75,65 @@ auto y = 20;                 // Type inference with auto (C++11)
 | `PI = 3.14159` (convention only) | `const double PI = 3.14159;` |
 | No true constants | `constexpr int MAX = 100;` |
 
+## Header Files and #include
+
+C++ separates declarations (`.h` files) from implementations (`.cpp` files).
+
+```cpp
+// Standard library headers (no .h)
+#include <iostream>  // Input/output
+#include <string>    // String class
+#include <vector>    // Vector class
+#include <map>       // Map class
+#include <cmath>     // Math functions
+
+// Your own headers (with .h)
+#include "myfile.h"
+```
+
+**Why?**
+- Allows separate compilation
+- Reduces compile time for large projects
+- Enables code organization
+
+## Namespaces
+
+C++ uses namespaces to avoid naming conflicts:
+
+```cpp
+// Using the std namespace explicitly
+std::cout << "Hello" << std::endl;
+std::string name = "Alice";
+std::vector<int> nums;
+
+// Or import the namespace (less recommended)
+using namespace std;
+cout << "Hello" << endl;
+```
+
+## Compilation Process
+
+Unlike Python's immediate execution, C++ requires compilation:
+
+```bash
+# Compile source to executable
+g++ -o myprogram myprogram.cpp
+
+# Run the executable
+./myprogram
+```
+
+**Multi-file compilation:**
+```bash
+# Compile multiple files
+g++ -o myprogram main.cpp helper.cpp
+
+# Or compile separately and link
+g++ -c main.cpp       # Creates main.o
+g++ -c helper.cpp     # Creates helper.o
+g++ -o myprogram main.o helper.o  # Link
+```
+
 ---
 
 [Next: Data Types →](02-data-types.md)
